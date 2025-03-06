@@ -21,7 +21,7 @@ namespace WebAddressbookTests
         public void SetupTest()
         {
             driver = new FirefoxDriver();
-            baseURL = "http://localhost/addressbook/";
+            baseURL = "http://localhost/addressbook/group.php";
             verificationErrors = new StringBuilder();
         }
 
@@ -56,13 +56,13 @@ namespace WebAddressbookTests
 
         private void ReturnToGroupsPage()
         {
+            driver.FindElement(By.LinkText("group page")).Click();
             driver.FindElement(By.LinkText("Logout")).Click();
         }
 
         private void SubmitGroupCreation()
         {
             driver.FindElement(By.Name("submit")).Click();
-            driver.FindElement(By.LinkText("group page")).Click();
         }
 
         private void FillGroupForm(GroupData group)
