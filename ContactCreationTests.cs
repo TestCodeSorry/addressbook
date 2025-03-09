@@ -45,21 +45,22 @@ namespace WebAddressbookTests
             GoToHomePage();
             Login(new AccountData("admin", "secret"));
             InitAddNewContact();
-            FillContactData();
+            ContactData contact = new ContactData("Anton", "Tester");
+            FillContactData(contact);
             SubmitContactCreation();
         }
 
-        private void FillContactData()
+        private void FillContactData(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys("Anton");
+            driver.FindElement(By.Name("firstname")).SendKeys(contact.FirstName);
             driver.FindElement(By.Name("middlename")).Click();
             driver.FindElement(By.Name("middlename")).Clear();
             driver.FindElement(By.Name("middlename")).SendKeys("WaitWait");
             driver.FindElement(By.Name("lastname")).Click();
             driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys("Tester");
+            driver.FindElement(By.Name("lastname")).SendKeys(contact.LastName);
             driver.FindElement(By.Name("nickname")).Click();
             driver.FindElement(By.Name("nickname")).Clear();
             driver.FindElement(By.Name("nickname")).SendKeys("Testerovwik");
@@ -115,14 +116,14 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("ayear")).Clear();
             driver.FindElement(By.Name("ayear")).SendKeys("2000");
             driver.FindElement(By.Name("new_group")).Click();
-            new SelectElement(driver.FindElement(By.Name("new_group"))).SelectByText("1");
+            new SelectElement(driver.FindElement(By.Name("new_group"))).SelectByText("aaa");
             driver.FindElement(By.XPath("//div[@id='content']/form/select[5]/option[2]")).Click();
             driver.FindElement(By.XPath("//div[@id='content']/form/input[20]")).Click();
         }
 
         private void SubmitContactCreation()
         {
-            driver.FindElement(By.LinkText("Enter")).Click();
+            //driver.FindElement(By.LinkText("enter")).Click();
             driver.FindElement(By.LinkText("home")).Click();
             driver.FindElement(By.LinkText("Logout")).Click();
         }
