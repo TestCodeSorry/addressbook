@@ -89,6 +89,16 @@ namespace WebAddressbookTests
             driver.FindElement(By.LinkText("Logout")).Click();
         }
 
+        protected void SelectGroup()
+        {
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[1]")).Click();
+        }        
+        
+        protected void RemoveGroup()
+        {
+            driver.FindElement(By.Name("delete")).Click();
+        }
+
         protected void FillContactData(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
