@@ -14,7 +14,7 @@ namespace WebAddressbookTests
         {
         }
 
-        public void FillContactData(ContactData contact)
+        public ContactHelper FillContactData(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
@@ -83,18 +83,21 @@ namespace WebAddressbookTests
             new SelectElement(driver.FindElement(By.Name("new_group"))).SelectByText("aaa");
             driver.FindElement(By.XPath("//div[@id='content']/form/select[5]/option[2]")).Click();
             driver.FindElement(By.XPath("//div[@id='content']/form/input[20]")).Click();
+            return this;
         }
 
-        public void SubmitContactCreation()
+        public ContactHelper SubmitContactCreation()
         {
             //driver.FindElement(By.LinkText("enter")).Click();
             driver.FindElement(By.LinkText("home")).Click();
             driver.FindElement(By.LinkText("Logout")).Click();
+            return this;
         }
 
-        public void InitAddNewContact()
+        public ContactHelper InitAddNewContact()
         {
             driver.FindElement(By.LinkText("add new")).Click();
+            return this;
         }
     }
 }
