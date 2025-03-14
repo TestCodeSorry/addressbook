@@ -11,17 +11,9 @@ namespace WebAddressbookTests
     public class ContactRemovalTests : TestBase
     {
         [Test]
-        public void TheUntitledTestCaseTest()
+        public void ContactRemovalTest()
         {
-            /*driver.Navigate().GoToUrl("http://localhost/addressbook/");
-            driver.FindElement(By.Name("user")).Click();
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys("admin");
-            driver.FindElement(By.Name("pass")).Clear();
-            driver.FindElement(By.Name("pass")).SendKeys("secret");
-            driver.FindElement(By.XPath("//input[@value='Login']")).Click();
-            driver.FindElement(By.Id("2")).Click();
-            driver.FindElement(By.XPath("//input[@value='Delete']")).Click();*/
+            app.Contact.Remove();
         }
     }
 }
