@@ -39,70 +39,33 @@ namespace WebAddressbookTests
 
         public ContactHelper FillContactData(ContactData contact)
         {
-            driver.FindElement(By.Name("firstname")).Click();
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(contact.FirstName);
-            driver.FindElement(By.Name("middlename")).Click();
-            driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys("WaitWait");
-            driver.FindElement(By.Name("lastname")).Click();
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(contact.LastName);
-            driver.FindElement(By.Name("nickname")).Click();
-            driver.FindElement(By.Name("nickname")).Clear();
-            driver.FindElement(By.Name("nickname")).SendKeys("Testerovwik");
-            driver.FindElement(By.Name("title")).Click();
-            driver.FindElement(By.Name("title")).Clear();
-            driver.FindElement(By.Name("title")).SendKeys("adressbook");
-            driver.FindElement(By.Name("company")).Click();
-            driver.FindElement(By.Name("company")).Clear();
-            driver.FindElement(By.Name("company")).SendKeys("software-testing");
-            driver.FindElement(By.Name("address")).Click();
-            driver.FindElement(By.Name("address")).Clear();
-            driver.FindElement(By.Name("address")).SendKeys("spb pushkina street 1");
-            driver.FindElement(By.Name("home")).Click();
-            driver.FindElement(By.Name("home")).Clear();
-            driver.FindElement(By.Name("home")).SendKeys("8126574839");
-            driver.FindElement(By.Name("mobile")).Click();
-            driver.FindElement(By.Name("mobile")).Clear();
-            driver.FindElement(By.Name("mobile")).SendKeys("+78881111111");
-            driver.FindElement(By.Name("work")).Click();
-            driver.FindElement(By.Name("work")).Clear();
-            driver.FindElement(By.Name("work")).SendKeys("1234");
-            driver.FindElement(By.Name("fax")).Click();
-            driver.FindElement(By.Name("fax")).Clear();
-            driver.FindElement(By.Name("fax")).SendKeys("4321");
-            driver.FindElement(By.Name("email")).Click();
-            driver.FindElement(By.Name("email")).Clear();
-            driver.FindElement(By.Name("email")).SendKeys("test@mail.ru");
-            driver.FindElement(By.Name("email2")).Click();
-            driver.FindElement(By.Name("email2")).Clear();
-            driver.FindElement(By.Name("email2")).SendKeys("test2@mail.ru");
-            driver.FindElement(By.Name("email3")).Click();
-            driver.FindElement(By.Name("email3")).Clear();
-            driver.FindElement(By.Name("email3")).SendKeys("test3@mail.ru");
-            driver.FindElement(By.Name("homepage")).Click();
-            driver.FindElement(By.Name("homepage")).Clear();
-            driver.FindElement(By.Name("homepage")).SendKeys("www.pentagon.ru");
-            driver.FindElement(By.Name("bday")).Click();
+            Type(By.Name("firstname"), contact.FirstName);
+            Type(By.Name("middlename"), "WaitWait");
+            Type(By.Name("lastname"), contact.FirstName);
+            Type(By.Name("nickname"), "Testerovwik");
+            Type(By.Name("title"), "adressbook");
+            Type(By.Name("company"), "software-testing");
+            Type(By.Name("address"), "spb pushkina street 1");
+            Type(By.Name("home"), "8126574839");
+            Type(By.Name("mobile"), "+78881111111");
+            Type(By.Name("work"), "1234");
+            Type(By.Name("fax"), "4321");
+            Type(By.Name("email"), "test@mail.ru");
+            Type(By.Name("email2"), "test2@mail.ru");
+            Type(By.Name("email3"), "test3@mail.ru");
+            Type(By.Name("homepage"), "www.pentagon.ru");
             new SelectElement(driver.FindElement(By.Name("bday"))).SelectByText("19");
             driver.FindElement(By.XPath("//option[@value='19']")).Click();
-            driver.FindElement(By.Name("bmonth")).Click();
             new SelectElement(driver.FindElement(By.Name("bmonth"))).SelectByText("January");
             driver.FindElement(By.XPath("//option[@value='January']")).Click();
-            driver.FindElement(By.Name("byear")).Click();
             driver.FindElement(By.Name("byear")).Clear();
             driver.FindElement(By.Name("byear")).SendKeys("2000");
-            driver.FindElement(By.Name("aday")).Click();
             new SelectElement(driver.FindElement(By.Name("aday"))).SelectByText("25");
             driver.FindElement(By.XPath("//div[@id='content']/form/select[3]/option[27]")).Click();
-            driver.FindElement(By.Name("amonth")).Click();
             new SelectElement(driver.FindElement(By.Name("amonth"))).SelectByText("August");
             driver.FindElement(By.XPath("//div[@id='content']/form/select[4]/option[9]")).Click();
-            driver.FindElement(By.Name("ayear")).Click();
             driver.FindElement(By.Name("ayear")).Clear();
             driver.FindElement(By.Name("ayear")).SendKeys("2000");
-            driver.FindElement(By.Name("new_group")).Click();
             new SelectElement(driver.FindElement(By.Name("new_group"))).SelectByText("aaa");
             driver.FindElement(By.XPath("//div[@id='content']/form/select[5]/option[2]")).Click();
             driver.FindElement(By.XPath("//div[@id='content']/form/input[20]")).Click();
@@ -125,7 +88,7 @@ namespace WebAddressbookTests
 
         public ContactHelper SelectContact()
         {
-            driver.FindElement(By.Id("6")).Click();
+            driver.FindElement(By.Id("9")).Click();
             return this;
         }
 
