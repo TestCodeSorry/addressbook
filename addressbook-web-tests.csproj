@@ -134,6 +134,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="tests\AuthTestBase.cs" />
+    <Compile Include="tests\LoginTests.cs" />
     <Compile Include="model\AccountData.cs" />
     <Compile Include="appmanager\ApplicationManager.cs" />
     <Compile Include="model\ContactData.cs" />
@@ -151,7 +153,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tests\GroupCreationTests.cs" />
     <Compile Include="tests\ContactCreationTests.cs" />
-    <Compile Include="tests\TestSuiteFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
