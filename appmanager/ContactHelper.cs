@@ -23,16 +23,16 @@ namespace WebAddressbookTests
         }
         public ContactHelper Modify()
         {
-            SelectContact();
+            SelectContact(1);
             InitContactModification();
             EditContactData();
             return this;
         }
 
 
-        public ContactHelper Remove()
+        public ContactHelper Remove(int p)
         {
-            SelectContact();
+            SelectContact(1);
             RemoveContact();
             return this;
         }
@@ -84,7 +84,7 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public ContactHelper SelectContact()
+        public ContactHelper SelectContact(int p)
         {
             driver.FindElement(By.XPath("(//input[@name='selected[]'])[1]")).Click();
             return this;
