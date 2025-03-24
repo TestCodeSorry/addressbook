@@ -15,7 +15,7 @@ namespace WebAddressbookTests
         {
             if (!app.Contact.IsEmptyContacts())
             {
-                app.Contact.Remove(1);
+                app.Contact.Remove(0);
                 app.Navigator.GoToHomePage();
             }
         }
