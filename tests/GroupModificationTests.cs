@@ -10,20 +10,15 @@ namespace WebAddressbookTests
     [TestFixture]
     public class GroupModificationTests : AuthTestBase
     {
-        [Test]
+        [Test] 
         public void GroupModificationTest()
         {
-            app.Navigator.GoToGroupsPage();
+            GroupData newData = new GroupData("zzz");
+            newData.Header = null;
+            newData.Footer = null;
 
-            if (!app.Groups.IsEmptyGroups())
-            { 
-                GroupData newData = new GroupData("zzz");
-                newData.Header = null;
-                newData.Footer = null;
-
-                app.Groups.Modify(1, newData);
-                app.Navigator.GoToHomePage();
-            }
+            app.Groups.Modify(1, newData);
+            app.Navigator.GoToHomePage();
         }
     }
 }

@@ -13,11 +13,10 @@ namespace WebAddressbookTests
         [Test]
         public void ContactModificationTest()
         {
-            if (!app.Contact.IsEmptyContacts())
-            {
-                app.Contact.Modify(1);
-                app.Navigator.GoToHomePage();
-            }
+            //ContactData newContactData = new ContactData("Alex", "Prohorov");
+
+            app.Contact.Modify();
+            app.Navigator.GoToHomePage();
         }
     }
 }
