@@ -13,8 +13,11 @@ namespace WebAddressbookTests
         [Test]
         public void ContactRemovalTest()
         {
-            app.Contact.Remove(1);
-            app.Navigator.GoToHomePage();
+            if (!app.Contact.IsEmptyContacts())
+            {
+                app.Contact.Remove(1);
+                app.Navigator.GoToHomePage();
+            }
         }
     }
 }

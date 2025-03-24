@@ -98,5 +98,14 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("edit")).Click();
             return this;
         }
+
+        public bool IsEmptyGroups()
+        {
+            if (driver.Url == "http://localhost/addressbook/group.php" && IsElementPresent(By.Name("selected[]")))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
