@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace WebAddressbookTests
 {
@@ -21,9 +22,9 @@ namespace WebAddressbookTests
             //SubmitContactCreation();
             return this;
         }
-        public ContactHelper Modify()
+        public ContactHelper Modify(int p)
         {
-            SelectContact(1);
+            SelectContact(p);
             InitContactModification();
             EditContactData();
             return this;
@@ -32,7 +33,7 @@ namespace WebAddressbookTests
 
         public ContactHelper Remove(int p)
         {
-            SelectContact(1);
+            SelectContact(p);
             RemoveContact();
             return this;
         }
@@ -166,12 +167,18 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("ayear")).Click();
             driver.FindElement(By.Name("ayear")).Clear();
             driver.FindElement(By.Name("ayear")).SendKeys("2002");
-            /*driver.FindElement(By.Name("new_group")).Click();
-            new SelectElement(driver.FindElement(By.Name("new_group"))).SelectByText("aaa");
-            driver.FindElement(By.XPath("//div[@id='content']/form/select[5]/option[2]")).Click();
-            driver.FindElement(By.XPath("//div[@id='content']/form/input[20]")).Click();*/
             driver.FindElement(By.Name("update")).Click();
             return this;
         }
+
+        public bool IsEmptyContacts()
+        {
+            if (driver.Url == "http://localhost/addressbook/" && IsElementPresent(By.Name("selected[]")))
+            { 
+                return false; 
+            }
+            return true;
+        }
     }
 }
+ 
