@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace WebAddressbookTests
 {
@@ -60,8 +61,6 @@ namespace WebAddressbookTests
             return this;
         }
 
-
-
         public GroupHelper SubmitGroupCreation()
         {
             driver.FindElement(By.Name("submit")).Click();
@@ -71,7 +70,6 @@ namespace WebAddressbookTests
         public GroupHelper ReturnToGroupsPage()
         {
             driver.FindElement(By.LinkText("group page")).Click();
-            //driver.FindElement(By.LinkText("Logout")).Click();
             return this;
         }
 

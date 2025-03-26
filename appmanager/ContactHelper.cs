@@ -19,7 +19,6 @@ namespace WebAddressbookTests
         {
             InitAddNewContact();
             FillContactData(contact);
-            //SubmitContactCreation();
             return this;
         }
         public ContactHelper Modify(int p)
@@ -27,6 +26,7 @@ namespace WebAddressbookTests
             SelectContact(p);
             InitContactModification();
             EditContactData();
+            //manager.Navigator.GoToHomePage();
             return this;
         }
 
@@ -42,7 +42,7 @@ namespace WebAddressbookTests
         {
             Type(By.Name("firstname"), contact.FirstName);
             Type(By.Name("middlename"), "WaitWait");
-            Type(By.Name("lastname"), contact.FirstName);
+            Type(By.Name("lastname"), contact.LastName);
             Type(By.Name("nickname"), "Testerovwik");
             Type(By.Name("title"), "adressbook");
             Type(By.Name("company"), "software-testing");
@@ -67,9 +67,10 @@ namespace WebAddressbookTests
             driver.FindElement(By.XPath("//div[@id='content']/form/select[4]/option[9]")).Click();
             driver.FindElement(By.Name("ayear")).Clear();
             driver.FindElement(By.Name("ayear")).SendKeys("2000");
-            new SelectElement(driver.FindElement(By.Name("new_group"))).SelectByText("aaa");
-            driver.FindElement(By.XPath("//div[@id='content']/form/select[5]/option[2]")).Click();
-            driver.FindElement(By.XPath("//div[@id='content']/form/input[20]")).Click();
+            //new SelectElement(driver.FindElement(By.Name("new_group"))).SelectByText("aaa");
+            //driver.FindElement(By.XPath("//div[@id='content']/form/select[5]/option[2]")).Click();
+            //driver.FindElement(By.XPath("//div[@id='content']/form/input[20]")).Click();
+            manager.Navigator.GoToHomePage();
             return this;
         }
 

@@ -13,10 +13,16 @@ namespace WebAddressbookTests
         [Test]
         public void ContactRemovalTest()
         {
+            ContactData contact = new ContactData("Maxim", "Petrov");
+
             if (!app.Contact.IsEmptyContacts())
             {
                 app.Contact.Remove(0);
-                app.Navigator.GoToHomePage();
+            }
+            else
+            {
+                app.Contact.Create(contact);
+                app.Contact.Remove(0);
             }
         }
     }

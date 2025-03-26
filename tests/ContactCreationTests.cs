@@ -16,7 +16,6 @@ namespace WebAddressbookTests
             ContactData contact = new ContactData("Anton", "Tester");
 
             app.Contact.Create(contact);
-            app.Navigator.GoToHomePage();
         }
     }
 }

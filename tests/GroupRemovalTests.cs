@@ -25,8 +25,20 @@ namespace WebAddressbookTests
 
                 oldGroups.RemoveAt(0);
                 Assert.AreEqual(oldGroups, newGroups);
+            }
+            else
+            {
+                GroupData group = new GroupData("ttt");
+                app.Groups.Create(group);
 
-                //app.Navigator.GoToHomePage();
+                List<GroupData> oldGroups = app.Groups.GetGroupList();
+
+                app.Groups.Remove(0);
+
+                List<GroupData> newGroups = app.Groups.GetGroupList();
+
+                oldGroups.RemoveAt(0);
+                Assert.AreEqual(oldGroups, newGroups);
             }
         }
     }
