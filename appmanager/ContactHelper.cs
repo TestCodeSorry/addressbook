@@ -19,6 +19,8 @@ namespace WebAddressbookTests
         {
             InitAddNewContact();
             FillContactData(contact);
+            SubmitContactCreation();
+            manager.Navigator.GoToHomePage();
             return this;
         }
         public ContactHelper Modify(int p)
@@ -26,7 +28,6 @@ namespace WebAddressbookTests
             SelectContact(p);
             InitContactModification();
             EditContactData();
-            //manager.Navigator.GoToHomePage();
             return this;
         }
 
@@ -70,7 +71,6 @@ namespace WebAddressbookTests
             //new SelectElement(driver.FindElement(By.Name("new_group"))).SelectByText("aaa");
             //driver.FindElement(By.XPath("//div[@id='content']/form/select[5]/option[2]")).Click();
             //driver.FindElement(By.XPath("//div[@id='content']/form/input[20]")).Click();
-            manager.Navigator.GoToHomePage();
             return this;
         }
 
