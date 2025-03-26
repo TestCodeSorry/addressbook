@@ -14,32 +14,22 @@ namespace WebAddressbookTests
         public void GroupRemovalTest()
         {
             app.Navigator.GoToGroupsPage();
+            List<GroupData> oldGroups = app.Groups.GetGroupList();
 
             if (!app.Groups.IsEmptyGroups())
             {
-                List<GroupData> oldGroups = app.Groups.GetGroupList();
-
                 app.Groups.Remove(0);
-
-                List<GroupData> newGroups = app.Groups.GetGroupList();
-
-                oldGroups.RemoveAt(0);
-                Assert.AreEqual(oldGroups, newGroups);
             }
             else
             {
                 GroupData group = new GroupData("ttt");
                 app.Groups.Create(group);
-
-                List<GroupData> oldGroups = app.Groups.GetGroupList();
-
                 app.Groups.Remove(0);
-
-                List<GroupData> newGroups = app.Groups.GetGroupList();
-
-                oldGroups.RemoveAt(0);
-                Assert.AreEqual(oldGroups, newGroups);
             }
+
+            List<GroupData> newGroups = app.Groups.GetGroupList();
+            oldGroups.RemoveAt(0);
+            Assert.AreEqual(oldGroups, newGroups);
         }
     }
 }
