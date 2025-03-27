@@ -17,7 +17,7 @@ namespace WebAddressbookTests
 
             if (app.Contact.IsEmptyContacts())
             {
-                ContactData contact = new ContactData("Maxim", "Petrov");
+                ContactData contact = new ContactData("Create", "Modif");
                 app.Contact.Create(contact);
             }
             app.Contact.Modify(0);

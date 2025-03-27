@@ -15,13 +15,12 @@ namespace WebAddressbookTests
         {
             app.Navigator.GoToGroupsPage();
 
-            List<GroupData> oldGroups = app.Groups.GetGroupList();
-
             if (app.Groups.IsEmptyGroups())
             {
                 GroupData group = new GroupData("ttt");
                 app.Groups.Create(group);
             }
+            List<GroupData> oldGroups = app.Groups.GetGroupList();
             app.Groups.Remove(0);
 
             List<GroupData> newGroups = app.Groups.GetGroupList();

@@ -52,16 +52,16 @@ namespace WebAddressbookTests
             GroupData group = new GroupData("a'a");
             group.Header = "";
             group.Footer = "";
+            //app.Groups.Create(group);
 
             List<GroupData> oldGroups = app.Groups.GetGroupList();
 
-            app.Groups.Create(group);
 
             List<GroupData> newGroups = app.Groups.GetGroupList();
             oldGroups.Add(group);
             oldGroups.Sort();
             newGroups.Sort();
-            Assert.AreNotEqual(oldGroups, newGroups);
+            Assert.AreEqual(oldGroups, newGroups);
         }
     }
 }

@@ -19,13 +19,12 @@ namespace WebAddressbookTests
             newData.Header = null;
             newData.Footer = null;
 
-            List<GroupData> oldGroups = app.Groups.GetGroupList();
-
             if (app.Groups.IsEmptyGroups())
             {
                 GroupData group = new GroupData("mmm");
                 app.Groups.Create(group);
             }
+            List<GroupData> oldGroups = app.Groups.GetGroupList();
             app.Groups.Modify(0, newData);
 
             List<GroupData> newGroups = app.Groups.GetGroupList();

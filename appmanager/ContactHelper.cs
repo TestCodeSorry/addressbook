@@ -107,13 +107,13 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys("Alex");
+            driver.FindElement(By.Name("firstname")).SendKeys("Standart");
             driver.FindElement(By.Name("middlename")).Click();
             driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys("Update");
+            driver.FindElement(By.Name("middlename")).SendKeys("Edit");
             driver.FindElement(By.Name("lastname")).Click();
             driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys("Prohor");
+            driver.FindElement(By.Name("lastname")).SendKeys("Modification");
             driver.FindElement(By.Name("nickname")).Click();
             driver.FindElement(By.Name("nickname")).Clear();
             driver.FindElement(By.Name("nickname")).SendKeys("UP");
