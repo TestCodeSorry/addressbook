@@ -14,18 +14,15 @@ namespace WebAddressbookTests
         public void GroupRemovalTest()
         {
             app.Navigator.GoToGroupsPage();
+
             List<GroupData> oldGroups = app.Groups.GetGroupList();
 
-            if (!app.Groups.IsEmptyGroups())
-            {
-                app.Groups.Remove(0);
-            }
-            else
+            if (app.Groups.IsEmptyGroups())
             {
                 GroupData group = new GroupData("ttt");
                 app.Groups.Create(group);
-                app.Groups.Remove(0);
             }
+            app.Groups.Remove(0);
 
             List<GroupData> newGroups = app.Groups.GetGroupList();
             oldGroups.RemoveAt(0);

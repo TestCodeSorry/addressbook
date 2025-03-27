@@ -15,17 +15,12 @@ namespace WebAddressbookTests
         {
             app.Navigator.GoToHomePage();
 
-            ContactData contact = new ContactData("Maxim", "Petrov");
-
-            if (!app.Contact.IsEmptyContacts())
+            if (app.Contact.IsEmptyContacts())
             {
-                app.Contact.Remove(0);
-            }
-            else
-            {
+                ContactData contact = new ContactData("Maxim", "Petrov");
                 app.Contact.Create(contact);
-                app.Contact.Remove(0);
             }
+            app.Contact.Remove(0);
         }
     }
 }
