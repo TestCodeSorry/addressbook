@@ -180,6 +180,21 @@ namespace WebAddressbookTests
             }
             return true;
         }
+
+        public List<ContactData> GetContactList()
+        {
+            List<ContactData> contacts = new List<ContactData>();
+            manager.Navigator.GoToHomePage();
+            ICollection<IWebElement> table = driver.FindElements(By.Name("entry"));
+            foreach (IWebElement row in table)
+            {
+                IList<IWebElement> cells = row.FindElements(By.TagName("td"));
+                string firstName = cells[2].Text;
+                string lastName = cells[1].Text;
+                contacts.Add(new ContactData(firstName, lastName));
+            }
+            return contacts;
+        }
     }
 }
  

@@ -15,12 +15,19 @@ namespace WebAddressbookTests
         {
             app.Navigator.GoToHomePage();
 
-            if (app.Contact.IsEmptyContacts())
+            if (app.Contacts.IsEmptyContacts())
             {
                 ContactData contact = new ContactData("Create", "Modif");
-                app.Contact.Create(contact);
+                app.Contacts.Create(contact);
             }
-            app.Contact.Modify(0);
+            List<ContactData> oldContacts = app.Contacts.GetContactList();
+            app.Contacts.Modify(0);
+
+            List<ContactData> newContacts = app.Contacts.GetContactList();
+            //oldContacts[0].firstName = newData.Name; ??
+            oldContacts.Sort();
+            newContacts.Sort();
+            Assert.AreEqual(oldContacts, newContacts);
         }
     }
 }

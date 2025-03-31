@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -15,12 +17,17 @@ namespace WebAddressbookTests
         {
             app.Navigator.GoToHomePage();
 
-            if (app.Contact.IsEmptyContacts())
+            if (app.Contacts.IsEmptyContacts())
             {
                 ContactData contact = new ContactData("Create", "Remove");
-                app.Contact.Create(contact);
+                app.Contacts.Create(contact);
             }
-            app.Contact.Remove(0);
+            List<ContactData> oldContacts = app.Contacts.GetContactList();
+            app.Contacts.Remove(0);
+
+            List<ContactData> newContacts = app.Contacts.GetContactList();
+            oldContacts.RemoveAt(0);
+            Assert.AreEqual(oldContacts, oldContacts);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace WebAddressbookTests
     public class ApplicationManager
     {
         protected IWebDriver driver;
-        public string baseURL;
+        protected string baseURL;
 
         protected LoginHelper loginHelper;
         protected NavigationHelper navigator;
@@ -88,7 +88,7 @@ namespace WebAddressbookTests
             }
         }
 
-        public ContactHelper Contact
+        public ContactHelper Contacts
         {
             get
             {
