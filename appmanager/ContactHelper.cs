@@ -181,19 +181,25 @@ namespace WebAddressbookTests
             return true;
         }
 
+        private List<ContactData> contactCache = null;
+
         public List<ContactData> GetContactList()
         {
-            List<ContactData> contacts = new List<ContactData>();
-            manager.Navigator.GoToHomePage();
-            ICollection<IWebElement> table = driver.FindElements(By.Name("entry"));
-            foreach (IWebElement row in table)
+            if (contactCache == null)
             {
-                IList<IWebElement> cells = row.FindElements(By.TagName("td"));
-                string firstName = cells[2].Text;
-                string lastName = cells[1].Text;
-                contacts.Add(new ContactData(firstName, lastName));
+                contactCache = new List<ContactData>();//List<ContactData> contacts = new List<ContactData>();
+                manager.Navigator.GoToHomePage();
+                ICollection<IWebElement> table = driver.FindElements(By.Name("entry"));
+                foreach (IWebElement row in table)
+                {
+                    IList<IWebElement> cells = row.FindElements(By.TagName("td"));
+                    string firstName = cells[2].Text;
+                    string lastName = cells[1].Text;
+                    contactCache.Add(new ContactData(firstName, lastName));
+                }
             }
-            return contacts;
+            
+            return new List<ContactData>(contactCache);
         }
     }
 }

@@ -71,6 +71,7 @@ namespace WebAddressbookTests
         public string Bday { get; set; }
         public string Aday { get; set; }
         public string Group { get; set; }
+        public string Id { get; set; }
 
 
         public bool Equals(ContactData other)
