@@ -99,7 +99,7 @@ namespace WebAddressbookTests
 
         public int CompareTo(ContactData other)
         {
-            if (Object.ReferenceEquals(other, null))
+            if (Object.ReferenceEquals(other.firstName, null))
             {
                 return 1;
             }
