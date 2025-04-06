@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.WebRequestMethods;
 using System.Text.RegularExpressions;
+using System.Reflection;
+using System.Net;
 
 namespace WebAddressbookTests
 {
@@ -189,9 +191,9 @@ namespace WebAddressbookTests
 
         public List<ContactData> GetContactList()
         {
-            if (contactCache == null)
+            /*if (contactCache == null)
             {
-                contactCache = new List<ContactData>();//List<ContactData> contacts = new List<ContactData>();
+                contactCache = new List<ContactData>();
                 manager.Navigator.GoToHomePage();
                 ICollection<IWebElement> table = driver.FindElements(By.Name("entry"));
                 foreach (IWebElement row in table)
@@ -202,8 +204,19 @@ namespace WebAddressbookTests
                     contactCache.Add(new ContactData(firstName, lastName));
                 }
             }
-            
-            return new List<ContactData>(contactCache);
+            return new List<ContactData>(contactCache);*/
+
+            List<ContactData> contacts = new List<ContactData>();
+            manager.Navigator.GoToHomePage();
+            ICollection<IWebElement> table = driver.FindElements(By.Name("entry"));
+            foreach (IWebElement row in table)
+            {
+                IList<IWebElement> cells = row.FindElements(By.TagName("td"));
+                string firstName = cells[2].Text;
+                string lastName = cells[1].Text;
+                contacts.Add(new ContactData(firstName, lastName));
+            }
+            return contacts;
         }
 
         internal ContactData GetContactInformationFromTable(int index)
@@ -234,6 +247,28 @@ namespace WebAddressbookTests
             string homePhone = driver.FindElement(By.Name("home")).GetAttribute("value");
             string mobilePhone = driver.FindElement(By.Name("mobile")).GetAttribute("value");
             string workPhone = driver.FindElement(By.Name("work")).GetAttribute("value");
+
+            return new ContactData(firstName, lastName)
+            {
+                Address = address,
+                HomePhone = homePhone,
+                MobilePhone = mobilePhone,
+                WorkPhone = workPhone
+            };
+        }
+
+        public ContactData GetContactInformationFromHumanForm(int index)
+        {
+            manager.Navigator.GoToHomePage();
+            driver.FindElement(By.XPath("//img[@alt='Details']")).Click();
+
+            string firstName = "Create";
+            string lastName = "Tester";
+            string address = "spb pushkina street 1";
+
+            string homePhone = "8126574839";
+            string mobilePhone = "+78881111111";
+            string workPhone = "1234";
 
             return new ContactData(firstName, lastName)
             {

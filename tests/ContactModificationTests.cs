@@ -14,6 +14,7 @@ namespace WebAddressbookTests
         public void ContactModificationTest()
         {
             app.Navigator.GoToHomePage();
+            ContactData newData = new ContactData("Standart", "Modification");
 
             if (app.Contacts.IsEmptyContacts())
             {
@@ -24,7 +25,7 @@ namespace WebAddressbookTests
             app.Contacts.Modify(0);
 
             List<ContactData> newContacts = app.Contacts.GetContactList();
-            //oldContacts[0].firstName = newData.Name; ??
+            oldContacts[0].FirstName = newData.FirstName;
             oldContacts.Sort();
             newContacts.Sort();
             Assert.AreEqual(oldContacts, newContacts);
