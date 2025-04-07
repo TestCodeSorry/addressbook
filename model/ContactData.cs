@@ -89,16 +89,16 @@ namespace WebAddressbookTests
 
         public int CompareTo(ContactData other)
         {
-            if (Object.ReferenceEquals(other.FirstName, null) || Object.ReferenceEquals(other.SecondName, null))
+            if (other.FirstName == null || other.SecondName == null)
             {
                 return 1;
             }
 
-            if (!Object.ReferenceEquals(FirstName, other.FirstName))
+            if (this.FirstName != other.FirstName)
             {
                 return FirstName.CompareTo(other.FirstName);
             }
-            else if (!Object.ReferenceEquals(SecondName, other.SecondName))
+            else if (SecondName != other.SecondName)
             {
                 return SecondName.CompareTo(other.SecondName);
             }
