@@ -55,6 +55,9 @@ namespace WebAddressbookTests
             }
         }
 
+        public object InRawData { get; set; }
+
+
         private string CleanUp(string phone)
         {
             if (phone == null || phone == "")

@@ -248,12 +248,16 @@ namespace WebAddressbookTests
             string mobilePhone = driver.FindElement(By.Name("mobile")).GetAttribute("value");
             string workPhone = driver.FindElement(By.Name("work")).GetAttribute("value");
 
+            string inRawData = firstName + lastName + address + homePhone + mobilePhone + workPhone;
+
+
             return new ContactData(firstName, lastName)
             {
                 Address = address,
                 HomePhone = homePhone,
                 MobilePhone = mobilePhone,
-                WorkPhone = workPhone
+                WorkPhone = workPhone,
+                InRawData = inRawData,
             };
         }
 
@@ -261,7 +265,7 @@ namespace WebAddressbookTests
         {
             manager.Navigator.GoToHomePage();
             driver.FindElement(By.XPath("//img[@alt='Details']")).Click();
-
+            /*
             string firstName = "Create";
             string lastName = "Tester";
             string address = "spb pushkina street 1";
@@ -269,13 +273,15 @@ namespace WebAddressbookTests
             string homePhone = "8126574839";
             string mobilePhone = "+78881111111";
             string workPhone = "1234";
+            */
+            string firstName = "Create";
+            string lastName = "Tester";
+            IList<IWebElement> raws = driver.FindElements(By.XPath("//div[@id='content']"));
+            string inRawData = raws[0].Text;
 
             return new ContactData(firstName, lastName)
             {
-                Address = address,
-                HomePhone = homePhone,
-                MobilePhone = mobilePhone,
-                WorkPhone = workPhone
+                InRawData = inRawData
             };
         }
 

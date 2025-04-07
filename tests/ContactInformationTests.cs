@@ -29,9 +29,7 @@ namespace WebAddressbookTests
             ContactData fromForm = app.Contacts.GetContactInformationFromHumanForm(0);
 
             // verification
-            Assert.AreEqual(fromEdit, fromForm);
-            Assert.AreEqual(fromEdit.Address, fromForm.Address);
-            Assert.AreEqual(fromEdit.AllPhones, fromForm.AllPhones);
+            Assert.AreEqual(fromEdit.InRawData, fromForm.InRawData);
         }
     }
 }
