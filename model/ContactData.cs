@@ -98,7 +98,7 @@ namespace WebAddressbookTests
             {
                 return FirstName.CompareTo(other.FirstName);
             }
-            else if (SecondName != other.SecondName)
+            else if (this.SecondName != other.SecondName)
             {
                 return SecondName.CompareTo(other.SecondName);
             }
