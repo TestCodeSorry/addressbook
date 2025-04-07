@@ -14,6 +14,8 @@ namespace WebAddressbookTests
 {
     public class ContactHelper : HelperBase
     {
+        private List<ContactData> contactCache = null;
+
         public ContactHelper(ApplicationManager manager) : base(manager )
         {
         }
@@ -33,7 +35,6 @@ namespace WebAddressbookTests
             EditContactData();
             return this;
         }
-
 
         public ContactHelper Remove(int p)
         {
@@ -80,6 +81,7 @@ namespace WebAddressbookTests
         public ContactHelper SubmitContactCreation()
         {
             driver.FindElement(By.XPath("//input[@value='Enter']")).Click();
+            contactCache = null;
             return this;
         }
 
@@ -98,6 +100,7 @@ namespace WebAddressbookTests
         public ContactHelper RemoveContact()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            contactCache = null;
             return this;
         }
         public ContactHelper InitContactModification(int index)
@@ -175,6 +178,7 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("ayear")).Clear();
             driver.FindElement(By.Name("ayear")).SendKeys("2002");
             driver.FindElement(By.Name("update")).Click();
+            contactCache = null;
             return this;
         }
 
@@ -187,16 +191,14 @@ namespace WebAddressbookTests
             return true;
         }
 
-        private List<ContactData> contactCache = null;
-
         public List<ContactData> GetContactList()
         {
-            /*if (contactCache == null)
+            if (contactCache == null)
             {
                 contactCache = new List<ContactData>();
                 manager.Navigator.GoToHomePage();
-                ICollection<IWebElement> table = driver.FindElements(By.Name("entry"));
-                foreach (IWebElement row in table)
+                ICollection<IWebElement> rows = driver.FindElements(By.Name("entry"));
+                foreach (IWebElement row in rows)
                 {
                     IList<IWebElement> cells = row.FindElements(By.TagName("td"));
                     string firstName = cells[2].Text;
@@ -204,8 +206,9 @@ namespace WebAddressbookTests
                     contactCache.Add(new ContactData(firstName, lastName));
                 }
             }
-            return new List<ContactData>(contactCache);*/
 
+            return new List<ContactData>(contactCache);
+            /*
             List<ContactData> contacts = new List<ContactData>();
             manager.Navigator.GoToHomePage();
             ICollection<IWebElement> table = driver.FindElements(By.Name("entry"));
@@ -216,7 +219,7 @@ namespace WebAddressbookTests
                 string lastName = cells[1].Text;
                 contacts.Add(new ContactData(firstName, lastName));
             }
-            return contacts;
+            return contacts;*/
         }
 
         internal ContactData GetContactInformationFromTable(int index)
@@ -257,7 +260,7 @@ namespace WebAddressbookTests
                 HomePhone = homePhone,
                 MobilePhone = mobilePhone,
                 WorkPhone = workPhone,
-                InRawData = inRawData,
+                InRowData = inRawData,
             };
         }
 
@@ -281,7 +284,7 @@ namespace WebAddressbookTests
 
             return new ContactData(firstName, lastName)
             {
-                InRawData = inRawData
+                InRowData = inRawData
             };
         }
 

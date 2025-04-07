@@ -55,7 +55,7 @@ namespace WebAddressbookTests
             }
         }
 
-        public object InRawData { get; set; }
+        public object InRowData { get; set; }
 
 
         private string CleanUp(string phone)
