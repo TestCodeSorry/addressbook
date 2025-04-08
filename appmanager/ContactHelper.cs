@@ -251,7 +251,7 @@ namespace WebAddressbookTests
             string mobilePhone = driver.FindElement(By.Name("mobile")).GetAttribute("value");
             string workPhone = driver.FindElement(By.Name("work")).GetAttribute("value");
 
-            string inRawData = firstName + lastName + address + homePhone + mobilePhone + workPhone;
+            string inRowData = firstName + lastName + address + homePhone + mobilePhone + workPhone;
 
 
             return new ContactData(firstName, lastName)
@@ -260,7 +260,7 @@ namespace WebAddressbookTests
                 HomePhone = homePhone,
                 MobilePhone = mobilePhone,
                 WorkPhone = workPhone,
-                InRowData = inRawData,
+                InRowData = inRowData,
             };
         }
 
@@ -280,11 +280,11 @@ namespace WebAddressbookTests
             string firstName = "Create";
             string lastName = "Tester";
             IList<IWebElement> raws = driver.FindElements(By.XPath("//div[@id='content']"));
-            string inRawData = raws[0].Text;
+            string inRowData = raws[0].Text;
 
             return new ContactData(firstName, lastName)
             {
-                InRowData = inRawData
+                InRowData = inRowData
             };
         }
 

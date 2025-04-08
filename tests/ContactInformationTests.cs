@@ -30,6 +30,7 @@ namespace WebAddressbookTests
 
             // verification
             Assert.AreEqual(fromEdit.InRowData, fromForm.InRowData);
+            //Assert.Contains(fromForm.FirstName, fromEdit.FirstName);
         }
     }
 }
