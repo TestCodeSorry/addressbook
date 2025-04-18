@@ -22,15 +22,15 @@ namespace WebAddressbookTests
             Assert.AreEqual(fromTable.AllPhones, fromForm.AllPhones);
             }
 
-        [Test]
-        public void HumanContactInformationTest()
-        {
-            ContactData fromEdit = app.Contacts.GetContactInformationFromEditForm(0);
-            ContactData fromForm = app.Contacts.GetContactInformationFromHumanForm(0);
+            [Test]
+            public void HumanContactInformationTest()
+            {
+                ContactData fromEdit = app.Contacts.GetContactInformationFromEditForm(0);
+                ContactData fromForm = app.Contacts.GetContactInformationFromHumanForm(0);
 
-            // verification
-            Assert.AreEqual(fromEdit.InRowData, fromForm.InRowData);
-            //Assert.Contains(fromForm.FirstName, fromEdit.FirstName);
-        }
+                // verification
+                Assert.AreEqual(fromEdit.InRowData, fromForm.InRowData);
+                //Assert.Contains(fromForm.FirstName, fromEdit.FirstName);
+            }
     }
 }

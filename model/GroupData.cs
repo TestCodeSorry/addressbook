@@ -7,11 +7,9 @@ using LinqToDB.Mapping;
 
 namespace WebAddressbookTests
 {
+    [Table(Name = "group_list")]
     public class GroupData : IEquatable<GroupData>, IComparable<GroupData>
     {
-
-        [Table( Name  = "group_list")]
-
         public GroupData()
         {
         }
