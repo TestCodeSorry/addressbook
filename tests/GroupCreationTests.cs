@@ -71,6 +71,7 @@ namespace WebAddressbookTests
             Assert.AreEqual(oldGroups, newGroups);
         }
 
+        // Тест на подключение к БД
         [Test]
         public void TestDBConnectivity()
         {
