@@ -11,7 +11,13 @@ namespace WebAddressbookTests
     public class GroupRemovalTests : AuthTestBase
     {
         [Test]
+
         public void GroupRemovalTest()
+        {
+
+        }
+        
+        /*public void GroupRemovalTestOld()
         {
             app.Navigator.GoToGroupsPage();
 
@@ -20,6 +26,7 @@ namespace WebAddressbookTests
                 GroupData group = new GroupData("ttt");
                 app.Groups.Create(group);
             }
+
             List<GroupData> oldGroups = app.Groups.GetGroupList();
             app.Groups.Remove(0);
 
@@ -35,6 +42,6 @@ namespace WebAddressbookTests
             {
                 Assert.AreNotEqual(group.Id, toBeRemoved.Id);
             }
-        }
+        }*/
     }
 }

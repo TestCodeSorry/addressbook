@@ -54,7 +54,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\addressbook\addressbook-web-tests.csproj">
+    <ProjectReference Include="..\addressbook-web-tests.csproj">
       <Project>{f918b5c7-96ad-4d34-860e-4444d8916fdb}</Project>
       <Name>addressbook-web-tests</Name>
     </ProjectReference>
