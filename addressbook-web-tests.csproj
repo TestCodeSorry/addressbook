@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\linq2db.MySql.5.4.1\build\linq2db.MySql.props" Condition="Exists('packages\linq2db.MySql.5.4.1\build\linq2db.MySql.props')" />
+  <Import Project="packages\linq2db.MySql.5.4.0\build\linq2db.MySql.props" Condition="Exists('packages\linq2db.MySql.5.4.0\build\linq2db.MySql.props')" />
   <Import Project="packages\NUnit.3.14.0\build\NUnit.props" Condition="Exists('packages\NUnit.3.14.0\build\NUnit.props')" />
   <Import Project="packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.props" Condition="Exists('packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.props')" />
   <Import Project="packages\Microsoft.Testing.Extensions.Telemetry.1.5.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props" Condition="Exists('packages\Microsoft.Testing.Extensions.Telemetry.1.5.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props')" />
@@ -245,7 +245,7 @@
     <Error Condition="!Exists('packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.props'))" />
     <Error Condition="!Exists('packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit3TestAdapter.5.0.0\build\net462\NUnit3TestAdapter.targets'))" />
     <Error Condition="!Exists('packages\NUnit.3.14.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit.3.14.0\build\NUnit.props'))" />
-    <Error Condition="!Exists('packages\linq2db.MySql.5.4.1\build\linq2db.MySql.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\linq2db.MySql.5.4.1\build\linq2db.MySql.props'))" />
+    <Error Condition="!Exists('packages\linq2db.MySql.5.4.0\build\linq2db.MySql.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\linq2db.MySql.5.4.0\build\linq2db.MySql.props'))" />
   </Target>
   <Import Project="packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets" Condition="Exists('packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets')" />
   <Import Project="packages\Microsoft.Testing.Platform.MSBuild.1.5.3\build\Microsoft.Testing.Platform.MSBuild.targets" Condition="Exists('packages\Microsoft.Testing.Platform.MSBuild.1.5.3\build\Microsoft.Testing.Platform.MSBuild.targets')" />
