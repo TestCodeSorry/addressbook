@@ -77,6 +77,11 @@ namespace WebAddressbookTests
         [Test]
         public void TestDBConnectivity()
         {
+            foreach (ContactData contact in GroupData.GetAll()[0].GetContacts())
+            {
+                System.Console.Out.WriteLine(contact);
+            }
+            /*
             DateTime start = DateTime.Now;
             List<GroupData> fromUi = app.Groups.GetGroupList();
             DateTime end = DateTime.Now;
@@ -86,46 +91,47 @@ namespace WebAddressbookTests
             List<GroupData> fromDb = GroupData.GetAll();
             end = DateTime.Now;
             System.Console.Out.WriteLine(end.Subtract(start));
+        }*/
+            /*
+            [Test]
+            public void EmptyGroupCreationTest()
+            {
+                GroupData group = new GroupData("");
+                group.Header = "";
+                group.Footer = "";
+
+                List<GroupData> oldGroups = app.Groups.GetGroupList();
+
+                app.Groups.Create(group);
+
+                Assert.AreEqual(oldGroups.Count + 1, app.Groups.GetGroupCount());
+
+                List<GroupData> newGroups = app.Groups.GetGroupList();
+                oldGroups.Add(group);
+                oldGroups.Sort();
+                newGroups.Sort();
+                Assert.AreEqual(oldGroups, newGroups);
+            }*/
+
+            /*[Test]
+            public void BadNameGroupCreationTest()
+            {
+                List<GroupData> oldGroups = app.Groups.GetGroupList();
+
+                GroupData group = new GroupData("a'a");
+                group.Header = "";
+                group.Footer = "";
+
+                app.Groups.Create(group);
+
+                Assert.AreEqual(oldGroups.Count, app.Groups.GetGroupCount());
+
+                List<GroupData> newGroups = app.Groups.GetGroupList();
+
+                oldGroups.Sort();
+                newGroups.Sort();
+                Assert.AreEqual(oldGroups, newGroups);
+            }*/
         }
-        /*
-        [Test]
-        public void EmptyGroupCreationTest()
-        {
-            GroupData group = new GroupData("");
-            group.Header = "";
-            group.Footer = "";
-
-            List<GroupData> oldGroups = app.Groups.GetGroupList();
-
-            app.Groups.Create(group);
-            
-            Assert.AreEqual(oldGroups.Count + 1, app.Groups.GetGroupCount());
-
-            List<GroupData> newGroups = app.Groups.GetGroupList();
-            oldGroups.Add(group);
-            oldGroups.Sort();
-            newGroups.Sort();
-            Assert.AreEqual(oldGroups, newGroups);
-        }*/
-
-        /*[Test]
-        public void BadNameGroupCreationTest()
-        {
-            List<GroupData> oldGroups = app.Groups.GetGroupList();
-            
-            GroupData group = new GroupData("a'a");
-            group.Header = "";
-            group.Footer = "";
-            
-            app.Groups.Create(group);
-
-            Assert.AreEqual(oldGroups.Count, app.Groups.GetGroupCount());
-            
-            List<GroupData> newGroups = app.Groups.GetGroupList();
-            
-            oldGroups.Sort();
-            newGroups.Sort();
-            Assert.AreEqual(oldGroups, newGroups);
-        }*/
     }
 }
