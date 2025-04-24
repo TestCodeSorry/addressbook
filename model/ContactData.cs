@@ -74,7 +74,7 @@ namespace WebAddressbookTests
         [Column(Name = "aday"), NotNull]
         public string Aday { get; set; }
 
-        [Column(Name = "group_id"), NotNull]
+        //[Column(Name = "group_id"), NotNull]
         public string Group { get; set; }
 
         [Column(Name = "id"), PrimaryKey, Identity]
@@ -101,6 +101,8 @@ namespace WebAddressbookTests
 
         public object InRowData { get; set; }
 
+        [Column(Name = "deprecated")]
+        public string Deprecated { get; set; } 
 
         private string CleanUp(string phone)
         {
@@ -150,6 +152,14 @@ namespace WebAddressbookTests
                 return SecondName.CompareTo(other.SecondName);
             }
             return 0;
+        }
+
+        public static List<ContactData> GetAll()
+        {
+            using (AddressBookDB db = new AddressBookDB())
+            {
+                return (from c in db.Contacts.Where(x => x.Deprecated == "0000-00-00 00:00:00" || x.Deprecated == null) select c).ToList();
+            }
         }
     }
 }
