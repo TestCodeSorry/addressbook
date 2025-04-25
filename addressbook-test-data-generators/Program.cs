@@ -58,8 +58,18 @@ namespace addressbook_test_data_generators
             }
             else if (format == "json")
             {
-                WriteGroupsToJsonFile(groups, writer);
-                WriteContactsToJsonFile(contacts, writer);
+                if (dataType == "groups")
+                {
+                    WriteGroupsToJsonFile(groups, writer);
+                }
+                else if (dataType == "contacts")
+                {
+                    WriteContactsToJsonFile(contacts, writer);
+                }
+                else
+                {
+                    System.Console.Out.Write("Unrecognized datatype " + dataType);
+                }
             }
             else
             {
